@@ -1,0 +1,331 @@
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Product",
+            "@id": "https://www.lira-ai.cn/products.html#recycle",
+            "name": "Lira Recycle - 智能回收机",
+            "description": "社区/商场智能回收设备，支持 5-8 仓分类，AI 识别准确率 96.2%",
+            "brand": {
+                "@type": "Brand",
+                "name": "Lira Intelligence"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "CNY",
+                "price": "100000",
+                "priceRange": "100000-150000",
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "莱拉人工智能（吉林省）有限公司"
+                }
+            },
+            "category": "再生资源",
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "准确率",
+                    "value": "96.2%"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "仓数",
+                    "value": "5-8 仓"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "容量",
+                    "value": "200-400L/仓"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "@id": "https://www.lira-ai.cn/products.html#sort",
+            "name": "Lira Sort - 智能分拣线",
+            "description": "AI 视觉 + 机器人分拣系统，现场分拣效率 52 件/分钟，投资回收期 10-14 个月",
+            "brand": {
+                "@type": "Brand",
+                "name": "Lira Intelligence"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "CNY",
+                "price": "2000000",
+                "priceRange": "2000000-5000000",
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "莱拉人工智能（吉林省）有限公司"
+                }
+            },
+            "category": "再生资源",
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "分拣效率",
+                    "value": "52 件/分钟"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "AI 准确率",
+                    "value": "96.2%"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "投资回收期",
+                    "value": "10-14 个月"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "@id": "https://www.lira-ai.cn/products.html#inspect",
+            "name": "Lira Inspect - AI 质检系统",
+            "description": "零件缺陷检测、尺寸测量，检测准确率 98%+，尺寸精度±0.1mm",
+            "brand": {
+                "@type": "Brand",
+                "name": "Lira Intelligence"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "CNY",
+                "price": "500000",
+                "priceRange": "500000-2000000",
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "莱拉人工智能（吉林省）有限公司"
+                }
+            },
+            "category": "智能制造",
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "检测准确率",
+                    "value": "98%+"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "尺寸精度",
+                    "value": "±0.1mm"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "检测速度",
+                    "value": "60 件/分钟"
+                }
+            ]
+        },
+        {
+            "@type": "Service",
+            "@id": "https://www.lira-ai.cn/industries.html",
+            "name": "Lira 行业解决方案",
+            "description": "服务 10+ 行业：再生资源、智能制造、物流仓储、食品饮料、医药健康等",
+            "provider": {
+                "@type": "Organization",
+                "name": "莱拉人工智能（吉林省）有限公司",
+                "url": "https://www.lira-ai.cn",
+                "logo": "https://www.lira-ai.cn/logo.png",
+                "foundingDate": "2026",
+                "areaServed": "CN",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "sales",
+                    "email": "contact@lira-ai.cn",
+                    "availableLanguage": ["Chinese", "English"]
+                }
+            },
+            "serviceType": "工业 AI 解决方案",
+            "areaServed": "CN",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "行业解决方案",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "再生资源 AI 解决方案",
+                            "description": "智能回收、分拣中心、清运调度完整解决方案"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "智能制造 AI 解决方案",
+                            "description": "零件质检、装配引导、缺陷检测、质量追溯"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "物流仓储 AI 解决方案",
+                            "description": "包裹分拣、库存管理、路径优化"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@type": "CreativeWork",
+            "@id": "https://www.lira-ai.cn/technology.html",
+            "name": "Lira 核心技术文档",
+            "description": "8 大核心技术，87 份技术文档，510K 字，7 项发明专利",
+            "author": {
+                "@type": "Organization",
+                "name": "莱拉人工智能（吉林省）有限公司"
+            },
+            "dateCreated": "2026-03-11",
+            "inLanguage": ["zh-CN", "en"],
+            "creativeWorkStatus": "Published",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "AI 视觉识别",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "准确率",
+                        "value": "98.5% 实验室/96.2% 现场"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "小目标检测",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "检出率",
+                        "value": "95% 实验室/88% 现场 (3mm)"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "多光谱识别",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "准确率",
+                        "value": "98% 实验室/95% 现场"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "3D 视觉",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "深度误差",
+                        "value": "<2mm"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "机器人控制",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "分拣速度",
+                        "value": "60 次/分钟实验室/52 次/分钟现场"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "边缘计算",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "FPS",
+                        "value": "62 FPS (Jetson Orin NX INT8)"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "IoT 设备管理",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "并发能力",
+                        "value": "万级设备并发"
+                    }
+                },
+                {
+                    "@type": "Thing",
+                    "name": "预测分析",
+                    "additionalProperty": {
+                        "@type": "PropertyValue",
+                        "name": "MAPE",
+                        "value": "<10%"
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://www.lira-ai.cn/",
+            "name": "Lira Intelligence",
+            "alternateName": "莱拉人工智能",
+            "url": "https://www.lira-ai.cn",
+            "description": "工业 AI 解决方案提供商，AI 视觉检测 96.2% 现场准确率，智能分拣系统 52 件/分钟",
+            "inLanguage": ["zh-CN", "en"],
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.lira-ai.cn/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "莱拉人工智能（吉林省）有限公司",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.lira-ai.cn/logo.png",
+                    "width": 600,
+                    "height": 60
+                }
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://www.lira-ai.cn/#organization",
+            "name": "莱拉人工智能（吉林省）有限公司",
+            "alternateName": "Lira Intelligence",
+            "url": "https://www.lira-ai.cn",
+            "logo": "https://www.lira-ai.cn/logo.png",
+            "foundingDate": "2026",
+            "areaServed": "CN",
+            "industry": "Industrial AI & Robotics",
+            "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "value": "10-50"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "contact@lira-ai.cn",
+                "telephone": "+86-431-XXXX-XXXX",
+                "availableLanguage": ["Chinese", "English"],
+                "areaServed": "CN"
+            },
+            "sameAs": [
+                "https://weibo.com/liraintelligence",
+                "https://www.linkedin.com/company/lira-intelligence",
+                "https://www.douyin.com/user/liraintelligence"
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://www.lira-ai.cn/#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://www.lira-ai.cn/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "产品中心",
+                    "item": "https://www.lira-ai.cn/products.html"
+                }
+            ]
+        }
+    ]
+}
