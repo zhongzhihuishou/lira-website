@@ -1,0 +1,17 @@
+{
+  "api": {
+    "token": "YOUR_TOKEN_HERE",
+    "app_key": "",
+    "app_secret": ""
+  },
+  "data": {
+    "max_bags": 1000,
+    "output_dir": "raw_data"
+  },
+  "training": {
+    "model_size": "m",
+    "epochs": 100,
+    "imgsz": 640,
+    "batch_size": 16
+  }
+}
