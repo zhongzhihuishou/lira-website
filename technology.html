@@ -76,60 +76,98 @@
             </div>
             <div class="tech-grid">
                 <div class="tech-card animate-on-scroll" id="vision">
-                    <span class="tech-icon">👁️</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 32s8-16 24-16 24 16 24 16-8 16-24 16S8 32 8 32z"/><circle cx="32" cy="32" r="8"/><circle cx="32" cy="32" r="3" fill="currentColor"/></svg></span>
                     <h3>AI 视觉识别</h3>
                     <div class="tech-data"><strong>98.5%</strong> 实验室 / <strong>96.8%</strong> 现场</div>
                     <p>YOLOv8 定制模型，支持 50+ 品类识别，&lt;30ms 延迟，第三方测试验证。</p>
                     <ul class="tech-specs"><li>YOLOv8m/l 定制架构</li><li>C2f 模块优化</li><li>Focal Loss 损失函数</li><li>50+ 品类训练数据</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="small-object">
-                    <span class="tech-icon">🎯</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="28"/><circle cx="32" cy="32" r="20"/><circle cx="32" cy="32" r="12"/><circle cx="32" cy="32" r="4" fill="currentColor"/></svg></span>
                     <h3>小目标检测</h3>
                     <div class="tech-data"><strong>95%</strong> 实验室 / <strong>88%</strong> 现场 (3mm)</div>
                     <p>4 尺度 FPN 检测头，P2 小目标层，CBAM 注意力机制，发明专利 2 项。</p>
                     <ul class="tech-specs"><li>P2 检测层（小目标专用）</li><li>4 尺度 FPN 结构</li><li>CBAM 注意力机制</li><li>小目标权重增强</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="spectral">
-                    <span class="tech-icon">🌈</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 48c8-8 12-16 12-24s4-16 12-16 12 8 12 16 4 16 12 16 8-8 8-16"/><line x1="4" y1="56" x2="60" y2="56"/></svg></span>
                     <h3>多光谱识别</h3>
                     <div class="tech-data"><strong>98%</strong> 实验室 / <strong>95%</strong> 现场</div>
                     <p>NIR/SWIR 光谱分析，可见光融合，PET/PVC/PE 精准分选，发明专利 2 项。</p>
                     <ul class="tech-specs"><li>NIR (900-1700nm)</li><li>SWIR (1700-2500nm)</li><li>可见光融合</li><li>材质分类算法</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="3d">
-                    <span class="tech-icon">📐</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 4L8 16v32l24 12 24-12V16L32 4z"/><path d="M8 16l24 12 24-12"/><path d="M32 28v32"/><circle cx="32" cy="28" r="4" fill="currentColor"/></svg></span>
                     <h3>3D 视觉</h3>
                     <div class="tech-data">深度误差 <strong>&lt;2mm</strong></div>
                     <p>结构光/ToF 深度相机，PointNet++ 点云处理，支持不规则物体体积测量。</p>
                     <ul class="tech-specs"><li>结构光/ToF 深度估计</li><li>PointNet++ 分割</li><li>3D 目标检测 (VoteNet)</li><li>实例分割 (3D-MPA)</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="robot">
-                    <span class="tech-icon">🤖</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="16" y="20" width="32" height="28" rx="4"/><circle cx="26" cy="32" r="4"/><circle cx="38" cy="32" r="4"/><path d="M24 44c4 4 12 4 16 0"/><path d="M32 8v8"/><circle cx="32" cy="6" r="3"/></svg></span>
                     <h3>机器人控制</h3>
                     <div class="tech-data"><strong>60 次/分钟</strong> 实验室 / <strong>52 次/分钟</strong> 现场</div>
                     <p>ROS 2 + MoveIt，RRT* 轨迹规划，视觉伺服±0.1mm 精度，6 机器人协同。</p>
                     <ul class="tech-specs"><li>ROS 2 框架</li><li>RRT* 运动规划</li><li>视觉伺服 (Eye-in-Hand)</li><li>六维力控阻抗控制</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="edge">
-                    <span class="tech-icon">⚡</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="20" y="20" width="24" height="24" rx="2"/><rect x="26" y="26" width="12" height="12" rx="1"/><path d="M32 4v12"/><path d="M32 48v12"/><path d="M4 32h12"/><path d="M48 32h12"/></svg></span>
                     <h3>边缘计算</h3>
                     <div class="tech-data"><strong>62 FPS</strong> (Jetson Orin NX INT8)</div>
                     <p>TensorRT INT8 加速，零拷贝流水线，多 CUDA 流并发，1/5 功耗，软著 5 项。</p>
                     <ul class="tech-specs"><li>TensorRT FP16/INT8</li><li>零拷贝 GPU 流水线</li><li>多 CUDA 流并发</li><li>功耗优化 (1/5 x86)</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="iot">
-                    <span class="tech-icon">🔗</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="8"/><circle cx="32" cy="12" r="4"/><circle cx="52" cy="32" r="4"/><circle cx="32" cy="52" r="4"/><circle cx="12" cy="32" r="4"/><path d="M32 20v-4"/><path d="M44 32h-4"/><path d="M32 44v4"/><path d="M20 32h-4"/></svg></span>
                     <h3>IoT 设备管理</h3>
                     <div class="tech-data"><strong>万级</strong> 设备并发</div>
                     <p>MQTT + Redis 消息总线，设备远程监控，OTA 远程升级，预测性维护。</p>
                     <ul class="tech-specs"><li>MQTT 协议</li><li>Redis 消息队列</li><li>设备状态监控</li><li>OTA 远程升级</li></ul>
                 </div>
                 <div class="tech-card animate-on-scroll" id="analytics">
-                    <span class="tech-icon">📊</span>
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 56V8"/><path d="M4 56h56"/><path d="M16 44V24"/><path d="M28 44V16"/><path d="M40 44V32"/><path d="M52 44V20"/><circle cx="16" cy="20" r="3"/><circle cx="28" cy="12" r="3"/><circle cx="40" cy="28" r="3"/><circle cx="52" cy="16" r="3"/><path d="M16 20l12-8 12 16 12-12"/></svg></span>
                     <h3>预测分析</h3>
                     <div class="tech-data">MAPE <strong>&lt;10%</strong></div>
                     <p>LSTM+Prophet 混合模型，回收量预测，价格趋势分析，运维预警。</p>
                     <ul class="tech-specs"><li>LSTM 时序预测</li><li>Prophet 趋势分析</li><li>多因子融合</li><li>自动模型选择</li></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="tech-section" style="background:var(--light)">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>🛠️ 模型训练与 Demo</h2>
+                <p>开放模型训练工具和在线 Demo，体验 Lira AI 能力</p>
+            </div>
+            <div class="tech-grid" style="max-width:900px;margin:0 auto">
+                <div class="tech-card animate-on-scroll">
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 18v-4a4 4 0 014-4h28a4 4 0 014 4v28a4 4 0 01-4 4H32"/><path d="M14 42L4 52"/><path d="M18 38L8 48"/><circle cx="36" cy="28" r="8"/><path d="M42 34l8 8"/></svg></span>
+                    <h3>模型训练模块</h3>
+                    <p>基于 YOLOv8 的吨袋异常检测训练系统，支持重量分析 + 图像识别融合检测。</p>
+                    <ul class="tech-specs">
+                        <li>✅ 4856 条训练数据</li>
+                        <li>✅ 重量统计模型</li>
+                        <li>✅ 异常检测规则</li>
+                        <li>🔄 YOLO 模型训练中</li>
+                    </ul>
+                    <div style="margin-top:1.5rem">
+                        <a href="model_training/README.md" class="btn btn-outline" style="width:100%">📚 查看文档</a>
+                    </div>
+                </div>
+                <div class="tech-card animate-on-scroll">
+                    <span class="tech-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="4" width="56" height="56" rx="4"/><circle cx="32" cy="32" r="12"/><path d="M32 20v-8"/><path d="M32 52v-8"/><path d="M20 32h-8"/><path d="M52 32h-8"/></svg></span>
+                    <h3>在线 Demo</h3>
+                    <p>上传吨袋投递图片，实时体验 AI 异常检测，支持空投、重量不足等异常识别。</p>
+                    <ul class="tech-specs">
+                        <li>📤 图片上传检测</li>
+                        <li>⚖️ 重量数据分析</li>
+                        <li>📊 实时结果展示</li>
+                        <li>🔍 置信度评估</li>
+                    </ul>
+                    <div style="margin-top:1.5rem">
+                        <a href="demo/index.html" class="btn btn-primary" style="width:100%">🚀 立即体验</a>
+                    </div>
                 </div>
             </div>
         </div>

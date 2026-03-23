@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 模型 Demo - Lira Intelligence | 在线体验吨袋异常检测</title>
+    <meta name="description" content="在线体验 Lira AI 视觉识别系统，上传吨袋投递图片，实时检测异常（空投、重量不足、品类不符等）">
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/vision.svg">
+    <style>
+        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--primary-light:#3b82f6;--secondary:#10b981;--secondary-dark:#059669;--danger:#ef4444;--warning:#f59e0b;--dark:#1e293b;--light:#f8fafc;--gray:#64748b;--white:#ffffff}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.6;color:var(--dark);background:var(--light)}
+        
+        .navbar{background:var(--white);box-shadow:0 2px 4px rgba(0,0,0,0.1);padding:1rem 0;position:sticky;top:0;z-index:100}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--dark);font-weight:700}
+        .logo svg{width:40px;height:40px}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500}
+        .nav-links a:hover{color:var(--primary)}
+        
+        .hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);padding:4rem 0;text-align:center}
+        .hero h1{font-size:2.5rem;margin-bottom:1rem}
+        .hero p{font-size:1.2rem;opacity:0.9;max-width:600px;margin:0 auto}
+        
+        .container{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+        
+        .demo-section{background:var(--white);border-radius:1rem;box-shadow:0 4px 6px rgba(0,0,0,0.1);padding:2rem;margin-bottom:2rem}
+        .demo-section h2{color:var(--primary);margin-bottom:1.5rem;font-size:1.8rem}
+        
+        .upload-area{border:3px dashed var(--gray-light);border-radius:1rem;padding:3rem;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--light)}
+        .upload-area:hover{border-color:var(--primary);background:rgba(37,99,235,0.05)}
+        .upload-area.dragover{border-color:var(--primary);background:rgba(37,99,235,0.1)}
+        .upload-icon{font-size:4rem;margin-bottom:1rem}
+        .upload-text{font-size:1.1rem;color:var(--gray);margin-bottom:0.5rem}
+        .upload-hint{font-size:0.9rem;color:var(--gray-light)}
+        #fileInput{display:none}
+        
+        .input-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+        .form-group{display:flex;flex-direction:column}
+        .form-group label{font-weight:500;margin-bottom:0.5rem;color:var(--dark)}
+        .form-group input,.form-group select{padding:0.75rem;border:2px solid var(--gray-light);border-radius:0.5rem;font-size:1rem;transition:border-color 0.3s}
+        .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary)}
+        
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 2rem;border:none;border-radius:0.5rem;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.3s}
+        .btn-primary{background:var(--primary);color:var(--white)}
+        .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+        .btn-primary:disabled{background:var(--gray-light);cursor:not-allowed;transform:none}
+        
+        .result-section{margin-top:2rem;display:none}
+        .result-section.active{display:block}
+        
+        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+        
+        .result-card{background:var(--light);border-radius:0.75rem;padding:1.5rem;border-left:4px solid var(--gray-light)}
+        .result-card.success{border-left-color:var(--secondary)}
+        .result-card.warning{border-left-color:var(--warning)}
+        .result-card.danger{border-left-color:var(--danger)}
+        
+        .result-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+        .result-status{font-size:1.3rem;font-weight:700}
+        .result-status.normal{color:var(--secondary)}
+        .result-status.anomaly{color:var(--danger)}
+        .result-risk{padding:0.25rem 0.75rem;border-radius:50px;font-size:0.85rem;font-weight:600}
+        .risk-low{background:rgba(16,185,129,0.1);color:var(--secondary)}
+        .risk-medium{background:rgba(245,158,11,0.1);color:var(--warning)}
+        .risk-high{background:rgba(239,68,68,0.1);color:var(--danger)}
+        
+        .result-details{margin-top:1rem}
+        .detail-row{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--gray-light)}
+        .detail-row:last-child{border-bottom:none}
+        .detail-label{color:var(--gray);font-size:0.9rem}
+        .detail-value{font-weight:600}
+        
+        .image-preview{max-width:100%;border-radius:0.5rem;margin-top:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+        
+        .loading{display:none;text-align:center;padding:2rem}
+        .loading.active{display:block}
+        .spinner{width:40px;height:40px;border:4px solid var(--gray-light);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1rem}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        
+        .stats-section{background:var(--white);border-radius:1rem;box-shadow:0 4px 6px rgba(0,0,0,0.1);padding:2rem;margin-bottom:2rem}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem}
+        .stat-card{text-align:center;padding:1rem}
+        .stat-number{font-size:2.5rem;font-weight:800;color:var(--primary);margin-bottom:0.5rem}
+        .stat-label{color:var(--gray);font-size:0.95rem}
+        
+        footer{background:var(--dark);color:var(--white);padding:2rem 0;text-align:center}
+        footer a{color:var(--white);text-decoration:none}
+        footer a:hover{color:var(--primary-light)}
+        
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .hero h1{font-size:1.8rem}
+            .input-form{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2563eb"/><stop offset="100%" style="stop-color:#1d4ed8"/></linearGradient></defs>
+                    <rect x="75" y="75" width="28" height="28" rx="3" fill="url(#g)"/>
+                    <rect x="75" y="107" width="28" height="28" rx="3" fill="url(#g)"/>
+                    <rect x="75" y="139" width="28" height="28" rx="3" fill="url(#g)"/>
+                    <rect x="75" y="171" width="28" height="28" rx="3" fill="url(#g)"/>
+                    <rect x="107" y="171" width="28" height="28" rx="3" fill="#10b981"/>
+                    <rect x="139" y="171" width="28" height="28" rx="3" fill="#10b981"/>
+                </svg>
+                <span>LIRA Demo</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../technology.html">核心技术</a></li>
+                <li><a href="../products.html">产品</a></li>
+                <li><a href="../contact.html">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>🤖 AI 模型在线 Demo</h1>
+        <p>上传吨袋投递图片，实时体验 AI 异常检测能力</p>
+    </section>
+
+    <div class="container">
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">96.8%</div>
+                    <div class="stat-label">现场准确率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">识别品类</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt;30ms</div>
+                    <div class="stat-label">检测延迟</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4856</div>
+                    <div class="stat-label">训练样本</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>📤 上传图片</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">点击或拖拽上传图片</div>
+                <div class="upload-hint">支持 JPG、PNG 格式，最大 10MB</div>
+                <input type="file" id="fileInput" accept="image/jpeg,image/png">
+            </div>
+
+            <div class="input-form">
+                <div class="form-group">
+                    <label for="weight">重量 (kg)</label>
+                    <input type="number" id="weight" step="0.01" min="0" placeholder="例如：1.5">
+                </div>
+                <div class="form-group">
+                    <label for="category">品类</label>
+                    <select id="category">
+                        <option value="">请选择</option>
+                        <option value="可回收物">可回收物</option>
+                        <option value="瓶子">瓶子</option>
+                        <option value="织物">织物</option>
+                        <option value="塑料">塑料</option>
+                        <option value="金属">金属</option>
+                        <option value="纸张">纸张</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deviceId">设备编号</label>
+                    <input type="text" id="deviceId" placeholder="例如：Device-001">
+                </div>
+                <div class="form-group" style="justify-content:flex-end">
+                    <button class="btn btn-primary" id="detectBtn" disabled>
+                        🔍 开始检测
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>正在分析中...</p>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <h2>📊 检测结果</h2>
+            <div class="result-grid">
+                <div class="result-card" id="resultCard">
+                    <div class="result-header">
+                        <span class="result-status" id="resultStatus">正常</span>
+                        <span class="result-risk risk-low" id="resultRisk">低风险</span>
+                    </div>
+                    <div class="result-details">
+                        <div class="detail-row">
+                            <span class="detail-label">异常类型</span>
+                            <span class="detail-value" id="anomalyType">无</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">置信度</span>
+                            <span class="detail-value" id="confidence">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">重量分析</span>
+                            <span class="detail-value" id="weightAnalysis">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Z-Score</span>
+                            <span class="detail-value" id="zScore">-</span>
+                        </div>
+                    </div>
+                    <img id="previewImage" class="image-preview" style="display:none">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 莱拉人工智能（吉林省）有限公司</p>
+            <p style="margin-top:0.5rem;opacity:0.7;font-size:0.9rem">Lira Intelligence - Industry Reimagined</p>
+        </div>
+    </footer>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const detectBtn = document.getElementById('detectBtn');
+        const loading = document.getElementById('loading');
+        const resultSection = document.getElementById('resultSection');
+        
+        let selectedFile = null;
+        let imagePreview = null;
+
+        // 上传区域点击
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        // 文件选择
+        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+        
+        // 拖拽
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('请选择图片文件');
+                return;
+            }
+            
+            if (file.size > 10 * 1024 * 1024) {
+                alert('文件大小不能超过 10MB');
+                return;
+            }
+            
+            selectedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview = e.target.result;
+                detectBtn.disabled = false;
+                uploadArea.querySelector('.upload-text').textContent = `已选择：${file.name}`;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 检测按钮
+        detectBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+            
+            const weight = document.getElementById('weight').value;
+            const category = document.getElementById('category').value;
+            const deviceId = document.getElementById('deviceId').value;
+            
+            // 显示加载中
+            loading.classList.add('active');
+            resultSection.classList.remove('active');
+            
+            // 模拟 API 调用（实际应调用后端）
+            await simulateDetection(weight, category, deviceId);
+            
+            loading.classList.remove('active');
+            resultSection.classList.add('active');
+        });
+
+        async function simulateDetection(weight, category, deviceId) {
+            // 模拟延迟
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // 模拟检测结果
+            const weightNum = parseFloat(weight) || 0;
+            let status, risk, riskClass, anomalyType, confidence, zScore, weightAnalysis;
+            
+            if (weightNum < 0.05) {
+                status = '异常';
+                risk = '高风险';
+                riskClass = 'risk-high';
+                anomalyType = '空投异常';
+                confidence = '95%';
+                zScore = '-∞';
+                weightAnalysis = '重量低于阈值';
+            } else if (category) {
+                const stats = {
+                    '可回收物': {mean: 1.78, std: 2.80},
+                    '瓶子': {mean: 0.85, std: 1.68},
+                    '织物': {mean: 3.75, std: 8.98},
+                    '塑料': {mean: 1.20, std: 2.10},
+                    '金属': {mean: 2.50, std: 3.20},
+                    '纸张': {mean: 1.90, std: 2.50}
+                };
+                const s = stats[category];
+                if (s) {
+                    zScore = ((weightNum - s.mean) / s.std).toFixed(2);
+                    if (zScore < -2) {
+                        status = '异常';
+                        risk = '中风险';
+                        riskClass = 'risk-medium';
+                        anomalyType = '重量不足';
+                        confidence = '85%';
+                        weightAnalysis = `低于均值${Math.abs(zScore)}个标准差`;
+                    } else if (zScore > 2) {
+                        status = '异常';
+                        risk = '中风险';
+                        riskClass = 'risk-medium';
+                        anomalyType = '重量异常';
+                        confidence = '85%';
+                        weightAnalysis = `高于均值${zScore}个标准差`;
+                    } else {
+                        status = '正常';
+                        risk = '低风险';
+                        riskClass = 'risk-low';
+                        anomalyType = '无';
+                        confidence = '98%';
+                        weightAnalysis = '在正常范围内';
+                    }
+                }
+            } else {
+                status = '正常';
+                risk = '低风险';
+                riskClass = 'risk-low';
+                anomalyType = '无';
+                confidence = '90%';
+                zScore = weightNum ? '0.00' : '-';
+                weightAnalysis = weightNum ? '正常' : '未提供';
+            }
+            
+            // 更新 UI
+            document.getElementById('resultStatus').textContent = status;
+            document.getElementById('resultStatus').className = 'result-status ' + (status === '正常' ? 'normal' : 'anomaly');
+            document.getElementById('resultRisk').textContent = risk;
+            document.getElementById('resultRisk').className = 'result-risk ' + riskClass;
+            document.getElementById('anomalyType').textContent = anomalyType;
+            document.getElementById('confidence').textContent = confidence;
+            document.getElementById('zScore').textContent = zScore;
+            document.getElementById('weightAnalysis').textContent = weightAnalysis;
+            
+            const previewImg = document.getElementById('previewImage');
+            if (imagePreview) {
+                previewImg.src = imagePreview;
+                previewImg.style.display = 'block';
+            }
+        }
+
+        // 输入验证
+        document.getElementById('weight').addEventListener('input', checkForm);
+        document.getElementById('category').addEventListener('change', checkForm);
+        
+        function checkForm() {
+            const weight = document.getElementById('weight').value;
+            const category = document.getElementById('category').value;
+            detectBtn.disabled = !(weight || category || selectedFile);
+        }
+    </script>
+</body>
+</html>
