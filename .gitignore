@@ -1,0 +1,64 @@
+# Environment
+.env
+*.env.local
+
+# Logs
+*.log
+logs/
+
+# PIDs
+*.pid
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+build/
+dist/
+
+# Data
+*.pt
+*.pth
+*.onnx
+raw_data/
+*.json
+!structured-data.json
+
+# Temporary
+tmp/
+temp/
+backup/
+
+# Workspace
+.openclaw/
+
+# Project-specific
+AGENTS.md
+SOUL.md
+USER.md
+TOOLS.md
+IDENTITY.md
+HEARTBEAT.md
+
+# Large files
+yolov8m.pt

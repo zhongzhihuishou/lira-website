@@ -3,65 +3,989 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>行业方案 - Lira Intelligence | 再生资源 | 智能制造 | 物流仓储</title>
-    <meta name="description" content="Lira 服务 10+ 行业，8000 亿 TAM，35% CAGR。再生资源、智能制造、物流仓储、食品饮料、医药健康、农业分选等完整行业解决方案。">
-    <link rel="canonical" href="https://www.lira-ai.cn/industries.html">
+    <title>行业方案 - Lira Intelligence | 再生资源 智能制造 物流仓储</title>
+    <meta name="description" content="Lira Intelligence 服务 10+ 行业，8000 亿 TAM，35% CAGR。提供再生资源、智能制造、物流仓储、食品饮料、医药健康、农业分选等完整行业解决方案。">
+    <meta name="keywords" content="行业方案, 再生资源, 智能制造, 物流仓储, 食品饮料, 医药健康, 农业分选, 工业AI解决方案">
+    <link rel="canonical" href="https://liraintelligence.com/industries.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="行业方案 - Lira Intelligence | 10+ 行业 AI 解决方案">
+    <meta property="og:description" content="服务 10+ 行业，8000 亿 TAM，35% CAGR，十五五政策驱动，80% 代码复用，2-3 个月快速适配。">
+    <meta property="og:url" content="https://liraintelligence.com/industries.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Lira Intelligence">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="行业方案 - Lira Intelligence | 10+ 行业 AI 解决方案">
+    <meta name="twitter:description" content="服务 10+ 行业，8000 亿 TAM，35% CAGR，十五五政策驱动，80% 代码复用，2-3 个月快速适配。">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://liraintelligence.com/industries.html">
+    <link rel="alternate" hreflang="en" href="https://liraintelligence.com/en/industries.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Design System -->
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--secondary:#10b981;--dark:#1e293b;--light:#f8fafc;--gray:#64748b}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:var(--dark);background:var(--light)}
-        .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        nav{background:white;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:fixed;width:100%;top:0;z-index:1000}
-        nav .container{display:flex;justify-content:space-between;align-items:center;padding:1rem 20px}
-        .logo{font-size:1.5rem;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:0.75rem;transition:transform 0.3s ease;letter-spacing:-0.5px}.logo:hover{transform:scale(1.05)}.logo-text{display:flex;flex-direction:column;line-height:1.1}.logo-main{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.5px}.logo-sub{font-size:0.65rem;font-weight:500;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
-        .nav-links{display:flex;gap:2rem;list-style:none}
-        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500;transition:color 0.3s}
-        .nav-links a:hover,.nav-links a.active{color:var(--primary)}
-        .mobile-menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer}
-        .page-hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white;padding:6rem 0 4rem;margin-top:60px;text-align:center}
-        .page-hero h1{font-size:2.5rem;margin-bottom:1rem}
-        .page-hero p{font-size:1.1rem;opacity:0.9;max-width:600px;margin:0 auto}
-        .industries-section{padding:4rem 0}
-        .section-header{text-align:center;margin-bottom:3rem}
-        .section-header h2{font-size:2rem;margin-bottom:1rem}
-        .section-header p{color:var(--gray);font-size:1.1rem}
-        .industries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
-        .industry-card{background:white;border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow);transition:all 0.3s;border:1px solid rgba(0,0,0,0.05)}
-.industry-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg);border-color:var(--primary-light)}
-        .industry-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.15)}
-        .industry-icon{width:80px;height:80px;background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(37,99,235,0.05));border-radius:1rem;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:1.25rem;transition:all 0.3s}
-.industry-card:hover .industry-icon{background:linear-gradient(135deg,var(--primary),var(--primary-light));transform:scale(1.15) rotate(-5deg)}
-        .industry-card h3{color:var(--primary);margin-bottom:0.75rem;font-size:1.25rem}
-        .industry-card .market-size{display:inline-block;background:var(--light);padding:0.5rem 1rem;border-radius:20px;font-size:0.85rem;color:var(--gray);margin-bottom:1rem}
-        .industry-card .market-size strong{color:var(--primary)}
-        .industry-card p{color:var(--gray);margin-bottom:1rem}
-        .industry-card ul{list-style:none;margin-top:1rem}
-        .industry-card li{padding:0.5rem 0;color:var(--gray);font-size:0.9rem;border-bottom:1px solid var(--light)}
-        .industry-card li:last-child{border-bottom:none}
-        .industry-card li:before{content:"✓ ";color:var(--secondary);font-weight:bold}
-        .cta-section{background:var(--dark);color:white;padding:4rem 0;text-align:center}
-        .cta-section h2{margin-bottom:1rem}
-        .cta-section p{opacity:0.9;margin-bottom:2rem}
-        .btn{display:inline-block;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s}
-        .btn-primary{background:var(--primary);color:white}
-        .btn-primary:hover{background:var(--primary-dark)}
-        footer{background:var(--dark);color:white;padding:3rem 0}
-        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
-        .footer-section h4{margin-bottom:1rem;color:var(--secondary)}
-        .footer-section ul{list-style:none}
-        .footer-section li{margin-bottom:0.5rem}
-        .footer-section a{color:white;text-decoration:none;opacity:0.8}
-        .copyright{text-align:center;padding-top:2rem;margin-top:2rem;border-top:1px solid rgba(255,255,255,0.1)}
-        @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:white;flex-direction:column;padding:1rem 0;box-shadow:0 4px 6px rgba(0,0,0,0.1)}.nav-links.active{display:flex}.mobile-menu-btn{display:block}.page-hero{padding:4rem 0 3rem}.page-hero h1{font-size:1.75rem}.industries-grid{grid-template-columns:1fr}}
+        /* CSS Variables */
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --primary-light: #38bdf8;
+            --accent-blue: #00d4ff;
+            --accent-purple: #7b2cbf;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow-glow: 0 0 60px rgba(14, 165, 233, 0.3);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'PingFang SC', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover { color: var(--primary-dark); }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: var(--space-lg) 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .navbar.scrolled {
+            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .navbar-logo svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .navbar-nav a {
+            color: var(--gray);
+            font-weight: 500;
+            padding: var(--space-sm) 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav a:hover,
+        .navbar-nav a.active {
+            color: var(--dark);
+        }
+
+        .navbar-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-blue));
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav a:hover::after,
+        .navbar-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Language Switch */
+        .lang-switch {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--white);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 999;
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .lang-switch a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s;
+        }
+
+        .lang-switch a.active,
+        .lang-switch a:hover {
+            color: var(--primary);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            margin-top: 80px;
+            padding: var(--space-4xl) 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(14,165,233,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Industries Section */
+        .industries-section {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .section-header h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        /* Industry Card */
+        .industry-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .industry-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(0,212,255,0.1));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            transition: all 0.3s;
+        }
+
+        .industry-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--primary);
+        }
+
+        .industry-card:hover .industry-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .industry-card:hover .industry-icon svg {
+            color: var(--white);
+        }
+
+        .industry-card h3 {
+            color: var(--dark);
+            margin-bottom: var(--space-sm);
+            font-size: 1.375rem;
+        }
+
+        .market-size {
+            display: inline-block;
+            background: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8125rem;
+            color: var(--gray);
+            margin-bottom: var(--space-md);
+            font-weight: 500;
+        }
+
+        .market-size strong {
+            color: var(--primary);
+        }
+
+        .industry-card p {
+            color: var(--gray);
+            margin-bottom: var(--space-md);
+        }
+
+        .industry-card ul {
+            list-style: none;
+            margin-top: var(--space-md);
+        }
+
+        .industry-card li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .industry-card li:last-child {
+            border-bottom: none;
+        }
+
+        .industry-card li::before {
+            content: '✓ ';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(14, 165, 233, 0.4);
+            color: var(--white);
+        }
+
+        .btn-lg {
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: 1.125rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: var(--space-4xl) 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: var(--space-md);
+            color: var(--white);
+        }
+
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: var(--space-2xl);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            padding: var(--space-4xl) 0 var(--space-xl);
+            background: var(--dark);
+            color: var(--gray);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .footer-brand p {
+            margin-top: var(--space-md);
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.4);
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .industries-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                display: none;
+            }
+            
+            .lang-switch {
+                top: 70px;
+                right: 10px;
+            }
+            
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+        }
     </style>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "行业方案 - Lira Intelligence",
+        "description": "Lira Intelligence 为 10+ 行业提供工业 AI 解决方案，包括再生资源、智能制造、物流仓储、食品饮料等",
+        "url": "https://liraintelligence.com/industries.html",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://liraintelligence.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "行业方案",
+                    "item": "https://liraintelligence.com/industries.html"
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
-    <nav><div class="container"><a href="index.html" class="logo"><svg width="44" height="44" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2563eb"/><stop offset="100%" style="stop-color:#1d4ed8"/></linearGradient></defs><rect x="75" y="75" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="107" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="139" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="171" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="107" y="171" width="28" height="28" rx="3" fill="#10b981"/><rect x="139" y="171" width="28" height="28" rx="3" fill="#10b981"/></svg><div class="logo-text"><span class="logo-main">LIRA</span><span class="logo-sub">INTELLIGENCE</span></div></a><button class="mobile-menu-btn" onclick="toggleMenu()">☰</button><ul class="nav-links"><li><a href="index.html">首页</a></li><li><a href="products.html">产品中心</a></li><li><a href="industries.html" class="active">行业方案</a></li><li><a href="technology.html">核心技术</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul></div></nav>
-    <div class="breadcrumb"><div class="container"><a href="index.html">首页</a><span>/</span><span>行业方案</span></div></div>
-    <section class="page-hero"><div class="container"><h1>行业方案</h1><p>服务 10+ 行业，8000 亿 TAM，35% CAGR，十五五政策驱动</p></div></section>
-    <section class="industries-section"><div class="container"><div class="section-header"><h2>10+ 行业解决方案</h2><p>80% 代码复用，2-3 个月快速适配</p></div><div class="industries-grid"><div class="industry-card"><div class="industry-icon"><svg width="36" height="36" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 20c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/><path d="M37 20c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/><path d="M22 40c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/></svg></div><h3>再生资源</h3><div class="market-size"><strong>700 亿</strong> 市场规模</div><p>智能回收、分拣中心、清运调度完整解决方案</p><ul><li>智能回收机 (10-15 万/台)</li><li>智能分拣线 (200-500 万/条)</li><li>智慧清运系统 (50-100 万/套)</li><li>智慧仓储管理 (30-80 万/套)</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 56V28l12-8v8l12-8v8l12-8v36H4z"/><rect x="8" y="40" width="8" height="16"/><rect x="20" y="40" width="8" height="16"/><path d="M52 56V36h8v20"/><rect x="54" y="28" width="4" height="8"/></svg></div><h3>智能制造</h3><div class="market-size"><strong>1,500 亿</strong> 市场规模</div><p>零件质检、装配引导、缺陷检测、质量追溯</p><ul><li>AI 质检系统 (50-200 万/套)</li><li>智能装配引导 (30-100 万/套)</li><li>质量追溯系统 (20-80 万/套)</li><li>85% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 4L4 18v28l28 14 28-14V18L32 4z"/><path d="M4 18l28 14 28-14"/><path d="M32 32v28"/><rect x="26" y="26" width="12" height="12" rx="2" fill="currentColor" stroke="none"/></svg></div><h3>物流仓储</h3><div class="market-size"><strong>1,200 亿</strong> 市场规模</div><p>包裹分拣、库存管理、路径优化</p><ul><li>包裹分拣系统 (100-300 万/套)</li><li>智能库存管理 (50-150 万/套)</li><li>路径优化系统 (30-100 万/套)</li><li>80% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 28c0-8.8 10.7-16 24-16s24 7.2 24 16"/><path d="M8 28v16c0 4.4 10.7 8 24 8s24-3.6 24-8V28"/><line x1="8" y1="36" x2="56" y2="36"/><line x1="8" y1="44" x2="56" y2="44"/></svg></div><h3>食品饮料</h3><div class="market-size"><strong>800 亿</strong> 市场规模</div><p>异物检测、品质分级、包装质检</p><ul><li>异物检测系统 (80-200 万/套)</li><li>品质分级系统 (50-150 万/套)</li><li>包装质检系统 (40-100 万/套)</li><li>75% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="16" y="8" width="32" height="48" rx="16"/><path d="M16 32h32"/><circle cx="24" cy="24" r="4"/><circle cx="40" cy="40" r="4"/></svg></div><h3>医药健康</h3><div class="market-size"><strong>600 亿</strong> 市场规模</div><p>药片分选、包装检测、洁净室监控</p><ul><li>药片分选系统 (100-300 万/套)</li><li>包装检测系统 (80-200 万/套)</li><li>洁净室监控 (50-150 万/套)</li><li>GMP 合规认证</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M32 56V32"/><path d="M32 32c-8-8-20-8-24 0s4 16 12 16"/><path d="M32 32c8-8 20-8 24 0s-4 16-12 16"/><path d="M20 56h24"/></svg></div><h3>农业分选</h3><div class="market-size"><strong>500 亿</strong> 市场规模</div><p>果蔬分级、杂质检测、智能采摘</p><ul><li>果蔬分级系统 (50-150 万/套)</li><li>杂质检测系统 (40-100 万/套)</li><li>智能采摘引导 (60-180 万/套)</li><li>70% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 40l4-16h40l4 16v12a2 2 0 01-2 2h-2a4 4 0 01-8 0H20a4 4 0 01-8 0H10a2 2 0 01-2-2V40z"/><circle cx="20" cy="52" r="4"/><circle cx="44" cy="52" r="4"/><path d="M16 24L24 12h16l8 12"/></svg></div><h3>汽车零部件</h3><div class="market-size"><strong>400 亿</strong> 市场规模</div><p>零件质检、装配检测、追溯管理</p><ul><li>零件质检系统 (80-200 万/套)</li><li>装配检测系统 (50-150 万/套)</li><li>追溯管理系统 (30-100 万/套)</li><li>80% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="12" y="16" width="40" height="32" rx="2"/><rect x="18" y="22" width="28" height="20"/><path d="M32 48v8"/><circle cx="32" cy="58" r="2"/></svg></div><h3>电子半导体</h3><div class="market-size"><strong>1,000 亿</strong> 市场规模</div><p>PCB 检测、元件分选、晶圆质检</p><ul><li>PCB 检测系统 (100-300 万/套)</li><li>元件分选系统 (80-200 万/套)</li><li>晶圆质检系统 (200-500 万/套)</li><li>65% 技术复用率</li></ul></div><div class="industry-card"><div class="industry-icon"><svg width="40" height="40" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 12c4-4 12-4 16 0s4 12 0 16-12 4-16 0-4-12 0-16z"/><path d="M40 36c4-4 12-4 16 0s4 12 0 16-12 4-16 0-4-12 0-16z"/><path d="M20 24l20 20"/></svg></div><h3>纺织服装</h3><div class="market-size"><strong>300 亿</strong> 市场规模</div><p>布料质检、颜色分选、缺陷检测</p><ul><li>布料质检系统 (50-150 万/套)</li><li>颜色分选系统 (40-100 万/套)</li><li>缺陷检测系统 (60-180 万/套)</li><li>60% 技术复用率</li></ul></div></div></div></section>
-    <section class="cta-section"><div class="container"><h2>获取行业解决方案</h2><p>10+ 行业，8000 亿 TAM，35% CAGR，定制化方案</p><a href="contact.html" class="btn btn-primary">联系行业专家</a></div></section>
-    <footer><div class="container"><div class="footer-grid"><div class="footer-section"><h4>产品中心</h4><ul><li><a href="products.html#recycle">智能回收机</a></li><li><a href="products.html#sort">智能分拣线</a></li><li><a href="products.html#transport">智慧清运系统</a></li><li><a href="products.html#wms">智慧仓储管理</a></li><li><a href="products.html#inspect">AI 质检系统</a></li><li><a href="products.html">查看全部产品 →</a></li></ul></div><div class="footer-section"><h4>行业方案</h4><ul><li><a href="industries.html#recycle">再生资源</a></li><li><a href="industries.html#manufacturing">智能制造</a></li><li><a href="industries.html#logistics">物流仓储</a></li><li><a href="industries.html#food">食品饮料</a></li><li><a href="industries.html#pharma">医药健康</a></li><li><a href="industries.html">查看全部行业 →</a></li></ul></div><div class="footer-section"><h4>核心技术</h4><ul><li><a href="technology.html#vision">AI 视觉识别</a></li><li><a href="technology.html#robot">机器人控制</a></li><li><a href="technology.html#edge">边缘计算</a></li><li><a href="technology.html#spectral">多光谱识别</a></li><li><a href="technology.html">查看全部技术 →</a></li></ul></div><div class="footer-section"><h4>支持与服务</h4><ul><li><a href="contact.html#support">技术支持</a></li><li><a href="contact.html#sales">商务合作</a></li><li><a href="contact.html#media">媒体咨询</a></li><li><a href="about.html#careers">加入我们</a></li><li><a href="contact.html">联系客户支持 →</a></li></ul></div><div class="footer-section"><h4>关于 Lira</h4><ul><li><a href="about.html">公司简介</a></li><li><a href="about.html#team">团队介绍</a></li><li><a href="about.html#news">新闻动态</a></li><li><a href="about.html#investors">投资者关系</a></li><li><a href="contact.html">联系投资者关系 →</a></li></ul></div></div><div class="footer-bottom"><div class="copyright"><p>&copy; 2026 莱拉人工智能（吉林省）有限公司 版权所有</p><p style="font-size:0.85rem;opacity:0.7;margin-top:0.5rem">Lira Intelligence, Industry Reimagined</p></div><div class="footer-links"><a href="#">隐私政策</a><a href="#">服务条款</a><a href="#">Cookie 政策</a><a href="about.html#sitemap">网站地图</a></div><div class="social-links"><a href="#" title="微信公众号">💬</a><a href="#" title="微博">📱</a><a href="#" title="LinkedIn">💼</a><a href="#" title="抖音">🎵</a></div></div></div></footer>
-    <script>function toggleMenu(){document.querySelector('.nav-links').classList.toggle('active')}</script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-logo">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="8" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/>
+                    <rect x="8" y="17" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/>
+                    <rect x="8" y="26" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/>
+                    <rect x="17" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/>
+                    <rect x="26" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0ea5e9"/>
+                            <stop offset="100%" style="stop-color:#38bdf8"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Lira Intelligence</span>
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="/">首页</a></li>
+                <li><a href="/products.html">产品</a></li>
+                <li><a href="/technology.html">技术</a></li>
+                <li><a href="/industries.html" class="active">行业</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/contact.html">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="lang-switch">
+        <a href="/industries.html" class="active">中文</a>
+        <span>|</span>
+        <a href="/en/industries.html">English</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>行业方案</h1>
+                <p>服务 10+ 行业，8000 亿 TAM，35% CAGR，十五五政策驱动</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>10+ 行业解决方案</h2>
+                <p>80% 代码复用，2-3 个月快速适配</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M7 20c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/>
+                            <path d="M37 20c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/>
+                            <path d="M22 40c0-4.4 3.6-8 8-8h4c4.4 0 8 3.6 8 8v4c0 4.4-3.6 8-8 8h-4c-4.4 0-8-3.6-8-8v-4z"/>
+                        </svg>
+                    </div>
+                    <h3>再生资源</h3>
+                    <div class="market-size"><strong>700 亿</strong> 市场规模</div>
+                    <p>智能回收、分拣中心、清运调度完整解决方案</p>
+                    <ul>
+                        <li>智能回收机 (10-15 万/台)</li>
+                        <li>智能分拣线 (200-500 万/条)</li>
+                        <li>智慧清运系统 (50-100 万/套)</li>
+                        <li>智慧仓储管理 (30-80 万/套)</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M4 56V28l12-8v8l12-8v8l12-8v36H4z"/>
+                            <rect x="8" y="40" width="8" height="16"/>
+                            <rect x="20" y="40" width="8" height="16"/>
+                            <path d="M52 56V36h8v20"/>
+                            <rect x="54" y="28" width="4" height="8"/>
+                        </svg>
+                    </div>
+                    <h3>智能制造</h3>
+                    <div class="market-size"><strong>1,500 亿</strong> 市场规模</div>
+                    <p>零件质检、装配引导、缺陷检测、质量追溯</p>
+                    <ul>
+                        <li>AI 质检系统 (50-200 万/套)</li>
+                        <li>智能装配引导 (30-100 万/套)</li>
+                        <li>质量追溯系统 (20-80 万/套)</li>
+                        <li>85% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M32 4L4 18v28l28 14 28-14V18L32 4z"/>
+                            <path d="M4 18l28 14 28-14"/>
+                            <path d="M32 32v28"/>
+                            <rect x="26" y="26" width="12" height="12" rx="2" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <h3>物流仓储</h3>
+                    <div class="market-size"><strong>1,200 亿</strong> 市场规模</div>
+                    <p>包裹分拣、库存管理、路径优化</p>
+                    <ul>
+                        <li>包裹分拣系统 (100-300 万/套)</li>
+                        <li>智能库存管理 (50-150 万/套)</li>
+                        <li>路径优化系统 (30-100 万/套)</li>
+                        <li>80% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M8 28c0-8.8 10.7-16 24-16s24 7.2 24 16"/>
+                            <path d="M8 28v16c0 4.4 10.7 8 24 8s24-3.6 24-8V28"/>
+                            <line x1="8" y1="36" x2="56" y2="36"/>
+                            <line x1="8" y1="44" x2="56" y2="44"/>
+                        </svg>
+                    </div>
+                    <h3>食品饮料</h3>
+                    <div class="market-size"><strong>800 亿</strong> 市场规模</div>
+                    <p>异物检测、品质分级、包装质检</p>
+                    <ul>
+                        <li>异物检测系统 (80-200 万/套)</li>
+                        <li>品质分级系统 (50-150 万/套)</li>
+                        <li>包装质检系统 (40-100 万/套)</li>
+                        <li>75% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="16" y="8" width="32" height="48" rx="16"/>
+                            <path d="M16 32h32"/>
+                            <circle cx="24" cy="24" r="4"/>
+                            <circle cx="40" cy="40" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>医药健康</h3>
+                    <div class="market-size"><strong>600 亿</strong> 市场规模</div>
+                    <p>药片分选、包装检测、洁净室监控</p>
+                    <ul>
+                        <li>药片分选系统 (100-300 万/套)</li>
+                        <li>包装检测系统 (80-200 万/套)</li>
+                        <li>洁净室监控 (50-150 万/套)</li>
+                        <li>GMP 合规认证</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M32 56V32"/>
+                            <path d="M32 32c-8-8-20-8-24 0s4 16 12 16"/>
+                            <path d="M32 32c8-8 20-8 24 0s-4 16-12 16"/>
+                            <path d="M20 56h24"/>
+                        </svg>
+                    </div>
+                    <h3>农业分选</h3>
+                    <div class="market-size"><strong>500 亿</strong> 市场规模</div>
+                    <p>果蔬分级、杂质检测、智能采摘</p>
+                    <ul>
+                        <li>果蔬分级系统 (50-150 万/套)</li>
+                        <li>杂质检测系统 (40-100 万/套)</li>
+                        <li>智能采摘引导 (60-180 万/套)</li>
+                        <li>70% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M8 40l4-16h40l4 16v12a2 2 0 01-2 2h-2a4 4 0 01-8 0H20a4 4 0 01-8 0H10a2 2 0 01-2-2V40z"/>
+                            <circle cx="20" cy="52" r="4"/>
+                            <circle cx="44" cy="52" r="4"/>
+                            <path d="M16 24L24 12h16l8 12"/>
+                        </svg>
+                    </div>
+                    <h3>汽车零部件</h3>
+                    <div class="market-size"><strong>400 亿</strong> 市场规模</div>
+                    <p>零件质检、装配检测、追溯管理</p>
+                    <ul>
+                        <li>零件质检系统 (80-200 万/套)</li>
+                        <li>装配检测系统 (50-150 万/套)</li>
+                        <li>追溯管理系统 (30-100 万/套)</li>
+                        <li>80% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <rect x="12" y="16" width="40" height="32" rx="2"/>
+                            <rect x="18" y="22" width="28" height="20"/>
+                            <path d="M32 48v8"/>
+                            <circle cx="32" cy="58" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>电子半导体</h3>
+                    <div class="market-size"><strong>1,000 亿</strong> 市场规模</div>
+                    <p>PCB 检测、元件分选、晶圆质检</p>
+                    <ul>
+                        <li>PCB 检测系统 (100-300 万/套)</li>
+                        <li>元件分选系统 (80-200 万/套)</li>
+                        <li>晶圆质检系统 (200-500 万/套)</li>
+                        <li>65% 技术复用率</li>
+                    </ul>
+                </div>
+
+                <div class="industry-card animate-on-scroll">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M8 12c4-4 12-4 16 0s4 12 0 16-12 4-16 0-4-12 0-16z"/>
+                            <path d="M40 36c4-4 12-4 16 0s4 12 0 16-12 4-16 0-4-12 0-16z"/>
+                            <path d="M20 24l20 20"/>
+                        </svg>
+                    </div>
+                    <h3>纺织服装</h3>
+                    <div class="market-size"><strong>300 亿</strong> 市场规模</div>
+                    <p>布料质检、颜色分选、缺陷检测</p>
+                    <ul>
+                        <li>布料质检系统 (50-150 万/套)</li>
+                        <li>颜色分选系统 (40-100 万/套)</li>
+                        <li>缺陷检测系统 (60-180 万/套)</li>
+                        <li>60% 技术复用率</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>获取行业解决方案</h2>
+            <p>10+ 行业，8000 亿 TAM，35% CAGR，定制化方案</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">联系行业专家</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="navbar-logo" style="color: var(--white);">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+                            <rect x="8" y="8" width="7" height="7" rx="1.5" fill="url(#logoGrad2)"/>
+                            <rect x="8" y="17" width="7" height="7" rx="1.5" fill="url(#logoGrad2)"/>
+                            <rect x="8" y="26" width="7" height="7" rx="1.5" fill="url(#logoGrad2)"/>
+                            <rect x="17" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/>
+                            <rect x="26" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/>
+                            <defs>
+                                <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0ea5e9"/>
+                                    <stop offset="100%" style="stop-color:#38bdf8"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>Lira Intelligence</span>
+                    </a>
+                    <p>莱拉人工智能（吉林省）有限公司<br/>工业 AI 解决方案提供商</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">产品</h4>
+                    <ul class="footer-links">
+                        <li><a href="/products.html">视觉检测系统</a></li>
+                        <li><a href="/products.html">智能分拣机器人</a></li>
+                        <li><a href="/technology.html">算法平台</a></li>
+                        <li><a href="/demo/index.html">在线 Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">公司</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about.html">关于我们</a></li>
+                        <li><a href="/industries.html">行业案例</a></li>
+                        <li><a href="/contact.html">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">资源</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">技术文档</a></li>
+                        <li><a href="#">API 参考</a></li>
+                        <li><a href="#">博客</a></li>
+                        <li><a href="#">支持中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 莱拉人工智能（吉林省）有限公司。保留所有权利.</p>
+                <div style="display: flex; gap: var(--space-lg);">
+                    <a href="#">隐私政策</a>
+                    <a href="#">服务条款</a>
+                    <a href="#">Cookie 设置</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()" aria-label="返回顶部">↑</button>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const windowHeight = window.innerHeight;
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < windowHeight - 100) {
+                    el.classList.add('animated');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Intersection Observer for animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
