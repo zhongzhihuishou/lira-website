@@ -7,40 +7,137 @@
     <meta name="description" content="抱歉，您访问的页面不存在。返回 Lira Intelligence 首页或联系我们获取帮助。">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://www.lira-ai.cn/404.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    
     <style>
+        :root{
+            --primary:#0ea5e9;
+            --primary-dark:#0284c7;
+            --primary-light:#38bdf8;
+            --accent-blue:#00d4ff;
+            --accent-purple:#7b2cbf;
+            --secondary:#10b981;
+            --secondary-dark:#059669;
+            --danger:#ef4444;
+            --warning:#f59e0b;
+            --dark:#0f172a;
+            --dark-light:#1e293b;
+            --light:#f8fafc;
+            --gray:#64748b;
+            --white:#ffffff;
+            --shadow-glow:0 0 60px rgba(14,165,233,0.3);
+            --radius-md:12px;
+            --radius-lg:16px;
+            --radius-xl:24px;
+            --space-xs:0.25rem;
+            --space-sm:0.5rem;
+            --space-md:1rem;
+            --space-lg:1.5rem;
+            --space-xl:2rem;
+            --space-2xl:3rem;
+            --space-3xl:4rem;
+            --space-4xl:6rem;
+        }
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--secondary:#10b981;--dark:#1e293b;--light:#f8fafc;--gray:#64748b}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:var(--dark);background:var(--light);min-height:100vh;display:flex;flex-direction:column}
-        .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        nav{background:white;box-shadow:0 2px 10px rgba(0,0,0,0.1);padding:1rem 0}
+        html{scroll-behavior:smooth;scroll-padding-top:80px}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Inter','PingFang SC',sans-serif;line-height:1.7;color:var(--dark);background:var(--light);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+        .container{max-width:1200px;margin:0 auto;padding:0 var(--space-xl)}
+        nav{background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:var(--space-md) 0}
         nav .container{display:flex;justify-content:space-between;align-items:center}
-        .logo{font-size:1.5rem;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:0.75rem;transition:transform 0.3s ease;letter-spacing:-0.5px}.logo:hover{transform:scale(1.05)}.logo-text{display:flex;flex-direction:column;line-height:1.1}.logo-main{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.5px}.logo-sub{font-size:0.65rem;font-weight:500;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
+        .logo{font-size:1.5rem;font-weight:800;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:0.75rem;transition:transform 0.3s ease;letter-spacing:-0.5px}
+        .logo:hover{transform:scale(1.05)}
+        .logo-text{display:flex;flex-direction:column;line-height:1.1}
+        .logo-main{font-size:1.1rem;font-weight:800;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.5px}
+        .logo-sub{font-size:0.65rem;font-weight:500;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
         .nav-links{display:flex;gap:2rem;list-style:none}
-        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500}
-        .error-section{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 0}
+        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500;transition:color 0.3s ease}
+        .nav-links a:hover{color:var(--primary)}
+        .error-section{flex:1;display:flex;align-items:center;justify-content:center;padding:var(--space-4xl) 0}
         .error-content{text-align:center;max-width:600px}
-        .error-code{font-size:8rem;font-weight:bold;color:var(--primary);line-height:1}
-        .error-title{font-size:2rem;margin:1rem 0;color:var(--dark)}
-        .error-message{color:var(--gray);font-size:1.1rem;margin-bottom:2rem}
-        .error-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-        .btn{display:inline-block;padding:1rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;transition:all 0.3s}
-        .btn-primary{background:var(--primary);color:white}
-        .btn-primary:hover{background:var(--primary-dark)}
-        .btn-outline{border:2px solid var(--primary);color:var(--primary)}
-        .btn-outline:hover{background:var(--primary);color:white}
-        .quick-links{background:white;padding:2rem;border-radius:12px;margin-top:3rem;box-shadow:0 4px 6px rgba(0,0,0,0.1)}
-        .quick-links h3{margin-bottom:1rem;color:var(--dark)}
-        .quick-links ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
-        .quick-links li a{color:var(--primary);text-decoration:none}
-        .quick-links li a:hover{text-decoration:underline}
-        footer{background:var(--dark);color:white;padding:2rem 0;margin-top:auto}
+        .error-code{font-size:8rem;font-weight:800;background:linear-gradient(135deg,var(--primary) 0%,var(--accent-blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+        .error-title{font-size:2rem;margin:var(--space-md) 0;color:var(--dark)}
+        .error-message{color:var(--gray);font-size:1.1rem;margin-bottom:var(--space-2xl)}
+        .error-actions{display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);border-radius:var(--radius-md);text-decoration:none;font-weight:700;transition:all 0.3s ease}
+        .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:var(--white);box-shadow:0 4px 15px rgba(14,165,233,0.3)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(14,165,233,0.4)}
+        .btn-outline{border:2px solid var(--primary);color:var(--primary);background:transparent}
+        .btn-outline:hover{background:var(--primary);color:var(--white);transform:translateY(-2px)}
+        .quick-links{background:var(--white);padding:var(--space-2xl);border-radius:var(--radius-xl);margin-top:var(--space-3xl);box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+        .quick-links h3{margin-bottom:var(--space-lg);color:var(--dark)}
+        .quick-links ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-md)}
+        .quick-links li a{color:var(--primary);text-decoration:none;transition:color 0.3s ease}
+        .quick-links li a:hover{text-decoration:underline;color:var(--primary-dark)}
+        footer{background:var(--dark);color:var(--white);padding:var(--space-2xl) 0;margin-top:auto}
         .copyright{text-align:center}
         @media(max-width:768px){.nav-links{display:none}.error-code{font-size:5rem}.error-title{font-size:1.5rem}.error-actions{flex-direction:column}.btn{width:100%}}
-    </style>
-</head>
-<body>
-    <nav><div class="container"><a href="index.html" class="logo"><svg width="44" height="44" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2563eb"/><stop offset="100%" style="stop-color:#1d4ed8"/></linearGradient></defs><rect x="75" y="75" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="107" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="139" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="75" y="171" width="28" height="28" rx="3" fill="url(#logoGrad)"/><rect x="107" y="171" width="28" height="28" rx="3" fill="#10b981"/><rect x="139" y="171" width="28" height="28" rx="3" fill="#10b981"/></svg><div class="logo-text"><span class="logo-main">LIRA</span><span class="logo-sub">INTELLIGENCE</span></div></a><ul class="nav-links"><li><a href="index.html">首页</a></li><li><a href="products.html">产品中心</a></li><li><a href="industries.html">行业方案</a></li><li><a href="technology.html">核心技术</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul></div></nav>
-    <section class="error-section"><div class="container"><div class="error-content"><div class="error-code">404</div><h1 class="error-title">页面未找到</h1><p class="error-message">抱歉，您访问的页面不存在或已被移除。请检查 URL 或返回首页。</p><div class="error-actions"><a href="index.html" class="btn btn-primary">返回首页</a><a href="contact.html" class="btn btn-outline">联系我们</a></div><div class="quick-links"><h3>快速链接</h3><ul><li><a href="products.html">产品中心 (18+ 产品)</a></li><li><a href="technology.html">核心技术 (8 大技术)</a></li><li><a href="industries.html">行业方案 (10+ 行业)</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系支持</a></li></ul></div></div></div></section>
-    <footer><div class="container"><div class="copyright"><p>&copy; 2026 莱拉人工智能（吉林省）有限公司 版权所有 | Lira Intelligence, Industry Reimagined</p></div></div></footer>
-</body>
-</html>
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;div class="container"&gt;
+            &lt;a href="index.html" class="logo"&gt;
+                &lt;svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" style="width: 44px; height: 44px;"&gt;
+                    &lt;defs&gt;
+                        &lt;linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"&gt;
+                            &lt;stop offset="0%" style="stop-color:#0ea5e9"/&gt;
+                            &lt;stop offset="100%" style="stop-color:#0284c7"/&gt;
+                        &lt;/linearGradient&gt;
+                    &lt;/defs&gt;
+                    &lt;rect x="75" y="75" width="28" height="28" rx="3" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="75" y="107" width="28" height="28" rx="3" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="75" y="139" width="28" height="28" rx="3" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="75" y="171" width="28" height="28" rx="3" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="107" y="171" width="28" height="28" rx="3" fill="#10b981"/&gt;
+                    &lt;rect x="139" y="171" width="28" height="28" rx="3" fill="#10b981"/&gt;
+                &lt;/svg&gt;
+                &lt;div class="logo-text"&gt;
+                    &lt;span class="logo-main"&gt;LIRA&lt;/span&gt;
+                    &lt;span class="logo-sub"&gt;INTELLIGENCE&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+            &lt;ul class="nav-links"&gt;
+                &lt;li&gt;&lt;a href="index.html"&gt;首页&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="products.html"&gt;产品中心&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="industries.html"&gt;行业方案&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="technology.html"&gt;核心技术&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="about.html"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="contact.html"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;section class="error-section"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="error-content"&gt;
+                &lt;div class="error-code"&gt;404&lt;/div&gt;
+                &lt;h1 class="error-title"&gt;页面未找到&lt;/h1&gt;
+                &lt;p class="error-message"&gt;抱歉，您访问的页面不存在或已被移除。请检查 URL 或返回首页。&lt;/p&gt;
+                &lt;div class="error-actions"&gt;
+                    &lt;a href="index.html" class="btn btn-primary"&gt;返回首页&lt;/a&gt;
+                    &lt;a href="contact.html" class="btn btn-outline"&gt;联系我们&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="quick-links"&gt;
+                    &lt;h3&gt;快速链接&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="products.html"&gt;产品中心 (18+ 产品)&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="technology.html"&gt;核心技术 (8 大技术)&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="industries.html"&gt;行业方案 (10+ 行业)&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="about.html"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="contact.html"&gt;联系支持&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;footer&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="copyright"&gt;
+                &lt;p&gt;&amp;copy; 2026 莱拉人工智能（吉林省）有限公司 版权所有 | Lira Intelligence, Industry Reimagined&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
