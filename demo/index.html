@@ -6,86 +6,137 @@
     <title>AI 模型 Demo - Lira Intelligence | 在线体验吨袋异常检测</title>
     <meta name="description" content="在线体验 Lira AI 视觉识别系统，上传吨袋投递图片，实时检测异常（空投、重量不足、品类不符等）">
     <link rel="icon" type="image/svg+xml" href="../assets/icons/vision.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    
     <style>
-        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--primary-light:#3b82f6;--secondary:#10b981;--secondary-dark:#059669;--danger:#ef4444;--warning:#f59e0b;--dark:#1e293b;--light:#f8fafc;--gray:#64748b;--white:#ffffff}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.6;color:var(--dark);background:var(--light)}
+        :root{
+            --primary:#0ea5e9;
+            --primary-dark:#0284c7;
+            --primary-light:#38bdf8;
+            --accent-blue:#00d4ff;
+            --accent-purple:#7b2cbf;
+            --secondary:#10b981;
+            --secondary-dark:#059669;
+            --danger:#ef4444;
+            --warning:#f59e0b;
+            --dark:#0f172a;
+            --dark-light:#1e293b;
+            --light:#f8fafc;
+            --gray:#64748b;
+            --white:#ffffff;
+            --shadow-glow:0 0 60px rgba(14,165,233,0.3);
+            --radius-md:12px;
+            --radius-lg:16px;
+            --radius-xl:24px;
+            --space-xs:0.25rem;
+            --space-sm:0.5rem;
+            --space-md:1rem;
+            --space-lg:1.5rem;
+            --space-xl:2rem;
+            --space-2xl:3rem;
+            --space-3xl:4rem;
+            --space-4xl:6rem;
+        }
         
-        .navbar{background:var(--white);box-shadow:0 2px 4px rgba(0,0,0,0.1);padding:1rem 0;position:sticky;top:0;z-index:100}
-        .nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-padding-top:80px}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Inter','PingFang SC',sans-serif;line-height:1.7;color:var(--dark);background:var(--light);-webkit-font-smoothing:antialiased}
+        
+        h1,h2,h3{font-weight:700;line-height:1.3;margin-bottom:1rem}
+        h1{font-size:clamp(2rem,5vw,3.5rem)}
+        h2{font-size:clamp(1.75rem,4vw,2.5rem)}
+        h3{font-size:clamp(1.25rem,3vw,1.75rem)}
+        p{margin-bottom:1rem}
+        a{color:var(--primary);text-decoration:none;transition:color 0.3s ease}
+        a:hover{color:var(--primary-dark)}
+        
+        .navbar{background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:var(--space-md) 0;position:sticky;top:0;z-index:100}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 var(--space-xl);display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--dark);font-weight:700}
         .logo svg{width:40px;height:40px}
         .nav-links{display:flex;gap:2rem;list-style:none}
-        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500}
+        .nav-links a{color:var(--dark);text-decoration:none;font-weight:500;transition:color 0.3s ease}
         .nav-links a:hover{color:var(--primary)}
         
-        .hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);padding:4rem 0;text-align:center}
-        .hero h1{font-size:2.5rem;margin-bottom:1rem}
-        .hero p{font-size:1.2rem;opacity:0.9;max-width:600px;margin:0 auto}
+        .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-blue) 100%);color:var(--white);padding:var(--space-4xl) 0;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);pointer-events:none}
+        .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:var(--space-md);position:relative;z-index:1}
+        .hero p{font-size:1.125rem;opacity:0.95;max-width:700px;margin:0 auto;position:relative;z-index:1}
         
-        .container{max-width:1200px;margin:0 auto;padding:2rem 1.5rem}
+        .container{max-width:1200px;margin:0 auto;padding:var(--space-2xl) var(--space-xl)}
         
-        .demo-section{background:var(--white);border-radius:1rem;box-shadow:0 4px 6px rgba(0,0,0,0.1);padding:2rem;margin-bottom:2rem}
-        .demo-section h2{color:var(--primary);margin-bottom:1.5rem;font-size:1.8rem}
+        .demo-section{background:var(--white);border-radius:var(--radius-xl);box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:var(--space-2xl);margin-bottom:var(--space-2xl);border:1px solid rgba(0,0,0,0.05);transition:all 0.3s ease}
+        .demo-section:hover{box-shadow:0 10px 40px rgba(0,0,0,0.12)}
+        .demo-section h2{color:var(--dark);margin-bottom:var(--space-xl);font-size:clamp(1.5rem,3vw,2rem)}
         
-        .upload-area{border:3px dashed var(--gray-light);border-radius:1rem;padding:3rem;text-align:center;cursor:pointer;transition:all 0.3s;background:var(--light)}
-        .upload-area:hover{border-color:var(--primary);background:rgba(37,99,235,0.05)}
-        .upload-area.dragover{border-color:var(--primary);background:rgba(37,99,235,0.1)}
-        .upload-icon{font-size:4rem;margin-bottom:1rem}
-        .upload-text{font-size:1.1rem;color:var(--gray);margin-bottom:0.5rem}
-        .upload-hint{font-size:0.9rem;color:var(--gray-light)}
+        .sample-images{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--space-lg);margin-bottom:var(--space-xl)}
+        .sample-image{border:2px solid rgba(0,0,0,0.1);border-radius:var(--radius-md);cursor:pointer;transition:all 0.3s ease;overflow:hidden;text-align:center;background:var(--light)}
+        .sample-image:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 8px 20px rgba(14,165,233,0.15)}
+        .sample-image.selected{border-color:var(--primary);box-shadow:0 0 0 4px rgba(14,165,233,0.15)}
+        .sample-image img{width:100%;height:100px;object-fit:cover;display:block}
+        .sample-image span{display:block;padding:var(--space-sm);font-size:0.875rem;font-weight:600;background:var(--white);color:var(--dark)}
+        
+        .upload-area{border:3px dashed rgba(0,0,0,0.15);border-radius:var(--radius-xl);padding:var(--space-3xl);text-align:center;cursor:pointer;transition:all 0.3s ease;background:var(--light)}
+        .upload-area:hover{border-color:var(--primary);background:rgba(14,165,233,0.05)}
+        .upload-area.dragover{border-color:var(--primary);background:rgba(14,165,233,0.1)}
+        .upload-icon{font-size:4rem;margin-bottom:var(--space-lg)}
+        .upload-text{font-size:1.125rem;color:var(--gray);margin-bottom:var(--space-sm)}
+        .upload-hint{font-size:0.875rem;color:var(--gray);opacity:0.8}
         #fileInput{display:none}
         
-        .input-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+        .input-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-lg);margin-top:var(--space-2xl)}
         .form-group{display:flex;flex-direction:column}
-        .form-group label{font-weight:500;margin-bottom:0.5rem;color:var(--dark)}
-        .form-group input,.form-group select{padding:0.75rem;border:2px solid var(--gray-light);border-radius:0.5rem;font-size:1rem;transition:border-color 0.3s}
-        .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary)}
+        .form-group label{font-weight:600;margin-bottom:var(--space-sm);color:var(--dark);font-size:0.9375rem}
+        .form-group input,.form-group select{padding:var(--space-md);border:2px solid rgba(0,0,0,0.1);border-radius:var(--radius-md);font-size:1rem;transition:all 0.3s ease;background:var(--white);font-family:inherit}
+        .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(14,165,233,0.1)}
         
-        .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:1rem 2rem;border:none;border-radius:0.5rem;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.3s}
-        .btn-primary{background:var(--primary);color:var(--white)}
-        .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-        .btn-primary:disabled{background:var(--gray-light);cursor:not-allowed;transform:none}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);border:none;border-radius:var(--radius-md);font-weight:700;font-size:1rem;cursor:pointer;transition:all 0.3s ease}
+        .btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:var(--white);box-shadow:0 4px 15px rgba(14,165,233,0.3)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(14,165,233,0.4)}
+        .btn-primary:disabled{background:var(--gray);cursor:not-allowed;transform:none;box-shadow:none}
         
-        .result-section{margin-top:2rem;display:none}
+        .result-section{margin-top:var(--space-2xl);display:none}
         .result-section.active{display:block}
         
-        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+        .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-xl)}
         
-        .result-card{background:var(--light);border-radius:0.75rem;padding:1.5rem;border-left:4px solid var(--gray-light)}
-        .result-card.success{border-left-color:var(--secondary)}
-        .result-card.warning{border-left-color:var(--warning)}
-        .result-card.danger{border-left-color:var(--danger)}
+        .result-card{background:var(--light);border-radius:var(--radius-lg);padding:var(--space-xl);border-left:5px solid rgba(0,0,0,0.1);transition:all 0.3s ease}
+        .result-card.success{border-left-color:var(--secondary);background:linear-gradient(135deg,rgba(16,185,129,0.05) 0%,var(--light) 100%)}
+        .result-card.warning{border-left-color:var(--warning);background:linear-gradient(135deg,rgba(245,158,11,0.05) 0%,var(--light) 100%)}
+        .result-card.danger{border-left-color:var(--danger);background:linear-gradient(135deg,rgba(239,68,68,0.05) 0%,var(--light) 100%)}
         
-        .result-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-        .result-status{font-size:1.3rem;font-weight:700}
+        .result-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-lg)}
+        .result-status{font-size:1.5rem;font-weight:800}
         .result-status.normal{color:var(--secondary)}
         .result-status.anomaly{color:var(--danger)}
-        .result-risk{padding:0.25rem 0.75rem;border-radius:50px;font-size:0.85rem;font-weight:600}
-        .risk-low{background:rgba(16,185,129,0.1);color:var(--secondary)}
-        .risk-medium{background:rgba(245,158,11,0.1);color:var(--warning)}
-        .risk-high{background:rgba(239,68,68,0.1);color:var(--danger)}
+        .result-risk{padding:var(--space-sm) var(--space-lg);border-radius:9999px;font-size:0.875rem;font-weight:700}
+        .risk-low{background:rgba(16,185,129,0.15);color:var(--secondary)}
+        .risk-medium{background:rgba(245,158,11,0.15);color:var(--warning)}
+        .risk-high{background:rgba(239,68,68,0.15);color:var(--danger)}
         
-        .result-details{margin-top:1rem}
-        .detail-row{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid var(--gray-light)}
+        .result-details{margin-top:var(--space-lg)}
+        .detail-row{display:flex;justify-content:space-between;padding:var(--space-sm) 0;border-bottom:1px solid rgba(0,0,0,0.08)}
         .detail-row:last-child{border-bottom:none}
-        .detail-label{color:var(--gray);font-size:0.9rem}
-        .detail-value{font-weight:600}
+        .detail-label{color:var(--gray);font-size:0.9375rem}
+        .detail-value{font-weight:700;color:var(--dark)}
         
-        .image-preview{max-width:100%;border-radius:0.5rem;margin-top:1rem;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+        .image-preview{max-width:100%;border-radius:var(--radius-md);margin-top:var(--space-xl);box-shadow:0 4px 15px rgba(0,0,0,0.1)}
         
-        .loading{display:none;text-align:center;padding:2rem}
+        .loading{display:none;text-align:center;padding:var(--space-3xl)}
         .loading.active{display:block}
-        .spinner{width:40px;height:40px;border:4px solid var(--gray-light);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 1rem}
+        .spinner{width:50px;height:50px;border:5px solid rgba(0,0,0,0.1);border-top-color:var(--primary);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto var(--space-lg)}
         @keyframes spin{to{transform:rotate(360deg)}}
         
-        .stats-section{background:var(--white);border-radius:1rem;box-shadow:0 4px 6px rgba(0,0,0,0.1);padding:2rem;margin-bottom:2rem}
-        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem}
-        .stat-card{text-align:center;padding:1rem}
-        .stat-number{font-size:2.5rem;font-weight:800;color:var(--primary);margin-bottom:0.5rem}
-        .stat-label{color:var(--gray);font-size:0.95rem}
+        .stats-section{background:var(--white);border-radius:var(--radius-xl);box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:var(--space-2xl);margin-bottom:var(--space-2xl);border:1px solid rgba(0,0,0,0.05)}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--space-xl)}
+        .stat-card{text-align:center;padding:var(--space-xl);border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(14,165,233,0.05) 0%,rgba(0,212,255,0.03) 100%)}
+        .stat-number{font-size:clamp(2rem,5vw,3rem);font-weight:800;background:linear-gradient(135deg,var(--primary) 0%,var(--accent-blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:var(--space-sm)}
+        .stat-label{color:var(--gray);font-size:0.9375rem;font-weight:500}
         
-        footer{background:var(--dark);color:var(--white);padding:2rem 0;text-align:center}
+        footer{background:var(--dark);color:var(--white);padding:var(--space-2xl) 0;text-align:center}
         footer a{color:var(--white);text-decoration:none}
         footer a:hover{color:var(--primary-light)}
         
@@ -94,168 +145,214 @@
             .hero h1{font-size:1.8rem}
             .input-form{grid-template-columns:1fr}
         }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="logo">
-                <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#2563eb"/><stop offset="100%" style="stop-color:#1d4ed8"/></linearGradient></defs>
-                    <rect x="75" y="75" width="28" height="28" rx="3" fill="url(#g)"/>
-                    <rect x="75" y="107" width="28" height="28" rx="3" fill="url(#g)"/>
-                    <rect x="75" y="139" width="28" height="28" rx="3" fill="url(#g)"/>
-                    <rect x="75" y="171" width="28" height="28" rx="3" fill="url(#g)"/>
-                    <rect x="107" y="171" width="28" height="28" rx="3" fill="#10b981"/>
-                    <rect x="139" y="171" width="28" height="28" rx="3" fill="#10b981"/>
-                </svg>
-                <span>LIRA Demo</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="../index.html">首页</a></li>
-                <li><a href="../technology.html">核心技术</a></li>
-                <li><a href="../products.html">产品</a></li>
-                <li><a href="../contact.html">联系</a></li>
-            </ul>
-        </div>
-    </nav>
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav class="navbar"&gt;
+        &lt;div class="nav-container"&gt;
+            &lt;a href="../index.html" class="logo"&gt;
+                &lt;svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                    &lt;rect x="8" y="8" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="8" y="17" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="8" y="26" width="7" height="7" rx="1.5" fill="url(#logoGrad)"/&gt;
+                    &lt;rect x="17" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/&gt;
+                    &lt;rect x="26" y="26" width="7" height="7" rx="1.5" fill="#0ea5e9"/&gt;
+                    &lt;defs&gt;
+                        &lt;linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"&gt;
+                            &lt;stop offset="0%" style="stop-color:#0ea5e9"/&gt;
+                            &lt;stop offset="100%" style="stop-color:#38bdf8"/&gt;
+                        &lt;/linearGradient&gt;
+                    &lt;/defs&gt;
+                &lt;/svg&gt;
+                &lt;span&gt;LIRA Demo&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;ul class="nav-links"&gt;
+                &lt;li&gt;&lt;a href="../index.html"&gt;首页&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="../technology.html"&gt;核心技术&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="../products.html"&gt;产品&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="../contact.html"&gt;联系&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
 
-    <section class="hero">
-        <h1>🤖 AI 模型在线 Demo</h1>
-        <p>上传吨袋投递图片，实时体验 AI 异常检测能力</p>
-    </section>
+    &lt;section class="hero"&gt;
+        &lt;h1&gt;🤖 AI 模型在线 Demo&lt;/h1&gt;
+        &lt;p&gt;上传吨袋投递图片，实时体验 AI 异常检测能力&lt;/p&gt;
+    &lt;/section&gt;
 
-    <div class="container">
-        <div class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">96.8%</div>
-                    <div class="stat-label">现场准确率</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">识别品类</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">&lt;30ms</div>
-                    <div class="stat-label">检测延迟</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4856</div>
-                    <div class="stat-label">训练样本</div>
-                </div>
-            </div>
-        </div>
+    &lt;div class="container"&gt;
+        &lt;div class="stats-section"&gt;
+            &lt;div class="stats-grid"&gt;
+                &lt;div class="stat-card"&gt;
+                    &lt;div class="stat-number"&gt;96.8%&lt;/div&gt;
+                    &lt;div class="stat-label"&gt;现场准确率&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="stat-card"&gt;
+                    &lt;div class="stat-number"&gt;50+&lt;/div&gt;
+                    &lt;div class="stat-label"&gt;识别品类&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="stat-card"&gt;
+                    &lt;div class="stat-number"&gt;&amp;lt;30ms&lt;/div&gt;
+                    &lt;div class="stat-label"&gt;检测延迟&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="stat-card"&gt;
+                    &lt;div class="stat-number"&gt;4856&lt;/div&gt;
+                    &lt;div class="stat-label"&gt;训练样本&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-        <div class="demo-section">
-            <h2>📤 上传图片</h2>
-            <div class="upload-area" id="uploadArea">
-                <div class="upload-icon">📷</div>
-                <div class="upload-text">点击或拖拽上传图片</div>
-                <div class="upload-hint">支持 JPG、PNG 格式，最大 10MB</div>
-                <input type="file" id="fileInput" accept="image/jpeg,image/png">
-            </div>
+        &lt;div class="demo-section"&gt;
+            &lt;h2&gt;📤 上传图片&lt;/h2&gt;
+            
+            &lt;div style="margin-bottom:var(--space-xl)"&gt;
+                &lt;label style="font-weight:700;margin-bottom:var(--space-md);display:block;color:var(--dark)"&gt;或选择示例图片：&lt;/label&gt;
+                &lt;div class="sample-images" id="sampleImages"&gt;
+                    &lt;div class="sample-image" data-file="sample_images/sample1.jpg"&gt;
+                        &lt;img src="sample_images/sample1.jpg" alt="示例 1" onerror="this.parentElement.style.display='none'"&gt;
+                        &lt;span&gt;示例 1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class="sample-image" data-file="sample_images/sample2.jpg"&gt;
+                        &lt;img src="sample_images/sample2.jpg" alt="示例 2" onerror="this.parentElement.style.display='none'"&gt;
+                        &lt;span&gt;示例 2&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class="sample-image" data-file="sample_images/sample3.jpg"&gt;
+                        &lt;img src="sample_images/sample3.jpg" alt="示例 3" onerror="this.parentElement.style.display='none'"&gt;
+                        &lt;span&gt;示例 3&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="upload-area" id="uploadArea"&gt;
+                &lt;div class="upload-icon"&gt;📷&lt;/div&gt;
+                &lt;div class="upload-text"&gt;点击或拖拽上传图片&lt;/div&gt;
+                &lt;div class="upload-hint"&gt;支持 JPG、PNG 格式，最大 10MB&lt;/div&gt;
+                &lt;input type="file" id="fileInput" accept="image/jpeg,image/png"&gt;
+            &lt;/div&gt;
 
-            <div class="input-form">
-                <div class="form-group">
-                    <label for="weight">重量 (kg)</label>
-                    <input type="number" id="weight" step="0.01" min="0" placeholder="例如：1.5">
-                </div>
-                <div class="form-group">
-                    <label for="category">品类</label>
-                    <select id="category">
-                        <option value="">请选择</option>
-                        <option value="可回收物">可回收物</option>
-                        <option value="瓶子">瓶子</option>
-                        <option value="织物">织物</option>
-                        <option value="塑料">塑料</option>
-                        <option value="金属">金属</option>
-                        <option value="纸张">纸张</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="deviceId">设备编号</label>
-                    <input type="text" id="deviceId" placeholder="例如：Device-001">
-                </div>
-                <div class="form-group" style="justify-content:flex-end">
-                    <button class="btn btn-primary" id="detectBtn" disabled>
+            &lt;div class="input-form"&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label for="weight"&gt;重量 (kg)&lt;/label&gt;
+                    &lt;input type="number" id="weight" step="0.01" min="0" placeholder="例如：1.5"&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label for="category"&gt;品类&lt;/label&gt;
+                    &lt;select id="category"&gt;
+                        &lt;option value=""&gt;请选择&lt;/option&gt;
+                        &lt;option value="可回收物"&gt;可回收物&lt;/option&gt;
+                        &lt;option value="瓶子"&gt;瓶子&lt;/option&gt;
+                        &lt;option value="织物"&gt;织物&lt;/option&gt;
+                        &lt;option value="塑料"&gt;塑料&lt;/option&gt;
+                        &lt;option value="金属"&gt;金属&lt;/option&gt;
+                        &lt;option value="纸张"&gt;纸张&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label for="deviceId"&gt;设备编号&lt;/label&gt;
+                    &lt;input type="text" id="deviceId" placeholder="例如：Device-001"&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group" style="justify-content:flex-end"&gt;
+                    &lt;button class="btn btn-primary" id="detectBtn" disabled&gt;
                         🔍 开始检测
-                    </button>
-                </div>
-            </div>
-        </div>
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p>正在分析中...</p>
-        </div>
+        &lt;div class="loading" id="loading"&gt;
+            &lt;div class="spinner"&gt;&lt;/div&gt;
+            &lt;p style="font-size:1.125rem;color:var(--gray);font-weight:600"&gt;正在分析中...&lt;/p&gt;
+        &lt;/div&gt;
 
-        <div class="result-section" id="resultSection">
-            <h2>📊 检测结果</h2>
-            <div class="result-grid">
-                <div class="result-card" id="resultCard">
-                    <div class="result-header">
-                        <span class="result-status" id="resultStatus">正常</span>
-                        <span class="result-risk risk-low" id="resultRisk">低风险</span>
-                    </div>
-                    <div class="result-details">
-                        <div class="detail-row">
-                            <span class="detail-label">异常类型</span>
-                            <span class="detail-value" id="anomalyType">无</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">置信度</span>
-                            <span class="detail-value" id="confidence">-</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">重量分析</span>
-                            <span class="detail-value" id="weightAnalysis">-</span>
-                        </div>
-                        <div class="detail-row">
-                            <span class="detail-label">Z-Score</span>
-                            <span class="detail-value" id="zScore">-</span>
-                        </div>
-                    </div>
-                    <img id="previewImage" class="image-preview" style="display:none">
-                </div>
-            </div>
-        </div>
-    </div>
+        &lt;div class="result-section" id="resultSection"&gt;
+            &lt;h2&gt;📊 检测结果&lt;/h2&gt;
+            &lt;div class="result-grid"&gt;
+                &lt;div class="result-card" id="resultCard"&gt;
+                    &lt;div class="result-header"&gt;
+                        &lt;span class="result-status" id="resultStatus"&gt;正常&lt;/span&gt;
+                        &lt;span class="result-risk risk-low" id="resultRisk"&gt;低风险&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class="result-details"&gt;
+                        &lt;div class="detail-row"&gt;
+                            &lt;span class="detail-label"&gt;异常类型&lt;/span&gt;
+                            &lt;span class="detail-value" id="anomalyType"&gt;无&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="detail-row"&gt;
+                            &lt;span class="detail-label"&gt;置信度&lt;/span&gt;
+                            &lt;span class="detail-value" id="confidence"&gt;-&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="detail-row"&gt;
+                            &lt;span class="detail-label"&gt;重量分析&lt;/span&gt;
+                            &lt;span class="detail-value" id="weightAnalysis"&gt;-&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="detail-row"&gt;
+                            &lt;span class="detail-label"&gt;Z-Score&lt;/span&gt;
+                            &lt;span class="detail-value" id="zScore"&gt;-&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;img id="previewImage" class="image-preview" style="display:none"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 莱拉人工智能（吉林省）有限公司</p>
-            <p style="margin-top:0.5rem;opacity:0.7;font-size:0.9rem">Lira Intelligence - Industry Reimagined</p>
-        </div>
-    </footer>
+    &lt;footer&gt;
+        &lt;div class="container"&gt;
+            &lt;p style="font-size:1rem;font-weight:500"&gt;&amp;copy; 2026 莱拉人工智能（吉林省）有限公司&lt;/p&gt;
+            &lt;p style="margin-top:var(--space-sm);opacity:0.7;font-size:0.9375rem"&gt;Lira Intelligence - Industry Reimagined&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
 
-    <script>
+    &lt;script&gt;
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
         const detectBtn = document.getElementById('detectBtn');
         const loading = document.getElementById('loading');
         const resultSection = document.getElementById('resultSection');
+        const sampleImages = document.getElementById('sampleImages');
         
         let selectedFile = null;
         let imagePreview = null;
 
-        // 上传区域点击
-        uploadArea.addEventListener('click', () => fileInput.click());
+        if (sampleImages) {
+            sampleImages.addEventListener('click', (e) =&gt; {
+                const sampleImage = e.target.closest('.sample-image');
+                if (!sampleImage) return;
+                
+                document.querySelectorAll('.sample-image').forEach(el =&gt; el.classList.remove('selected'));
+                sampleImage.classList.add('selected');
+                
+                const imgFile = sampleImage.dataset.file;
+                fetch(imgFile)
+                    .then(res =&gt; res.blob())
+                    .then(blob =&gt; {
+                        const file = new File([blob], imgFile.split('/').pop(), {type: 'image/jpeg'});
+                        handleFile(file);
+                    })
+                    .catch(err =&gt; {
+                        console.error('加载示例图片失败:', err);
+                        alert('加载示例图片失败，请尝试上传本地图片');
+                    });
+            });
+        }
+
+        uploadArea.addEventListener('click', () =&gt; {
+            document.querySelectorAll('.sample-image').forEach(el =&gt; el.classList.remove('selected'));
+            fileInput.click();
+        });
         
-        // 文件选择
-        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+        fileInput.addEventListener('change', (e) =&gt; handleFile(e.target.files[0]));
         
-        // 拖拽
-        uploadArea.addEventListener('dragover', (e) => {
+        uploadArea.addEventListener('dragover', (e) =&gt; {
             e.preventDefault();
             uploadArea.classList.add('dragover');
         });
         
-        uploadArea.addEventListener('dragleave', () => {
+        uploadArea.addEventListener('dragleave', () =&gt; {
             uploadArea.classList.remove('dragover');
         });
         
-        uploadArea.addEventListener('drop', (e) => {
+        uploadArea.addEventListener('drop', (e) =&gt; {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             handleFile(e.dataTransfer.files[0]);
@@ -267,14 +364,14 @@
                 return;
             }
             
-            if (file.size > 10 * 1024 * 1024) {
+            if (file.size &gt; 10 * 1024 * 1024) {
                 alert('文件大小不能超过 10MB');
                 return;
             }
             
             selectedFile = file;
             const reader = new FileReader();
-            reader.onload = (e) => {
+            reader.onload = (e) =&gt; {
                 imagePreview = e.target.result;
                 detectBtn.disabled = false;
                 uploadArea.querySelector('.upload-text').textContent = `已选择：${file.name}`;
@@ -282,19 +379,16 @@
             reader.readAsDataURL(file);
         }
 
-        // 检测按钮
-        detectBtn.addEventListener('click', async () => {
+        detectBtn.addEventListener('click', async () =&gt; {
             if (!selectedFile) return;
             
             const weight = document.getElementById('weight').value;
             const category = document.getElementById('category').value;
             const deviceId = document.getElementById('deviceId').value;
             
-            // 显示加载中
             loading.classList.add('active');
             resultSection.classList.remove('active');
             
-            // 模拟 API 调用（实际应调用后端）
             await simulateDetection(weight, category, deviceId);
             
             loading.classList.remove('active');
@@ -302,14 +396,12 @@
         });
 
         async function simulateDetection(weight, category, deviceId) {
-            // 模拟延迟
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve =&gt; setTimeout(resolve, 1500));
             
-            // 模拟检测结果
             const weightNum = parseFloat(weight) || 0;
             let status, risk, riskClass, anomalyType, confidence, zScore, weightAnalysis;
             
-            if (weightNum < 0.05) {
+            if (weightNum &lt; 0.05) {
                 status = '异常';
                 risk = '高风险';
                 riskClass = 'risk-high';
@@ -329,14 +421,14 @@
                 const s = stats[category];
                 if (s) {
                     zScore = ((weightNum - s.mean) / s.std).toFixed(2);
-                    if (zScore < -2) {
+                    if (zScore &lt; -2) {
                         status = '异常';
                         risk = '中风险';
                         riskClass = 'risk-medium';
                         anomalyType = '重量不足';
                         confidence = '85%';
                         weightAnalysis = `低于均值${Math.abs(zScore)}个标准差`;
-                    } else if (zScore > 2) {
+                    } else if (zScore &gt; 2) {
                         status = '异常';
                         risk = '中风险';
                         riskClass = 'risk-medium';
@@ -362,7 +454,6 @@
                 weightAnalysis = weightNum ? '正常' : '未提供';
             }
             
-            // 更新 UI
             document.getElementById('resultStatus').textContent = status;
             document.getElementById('resultStatus').className = 'result-status ' + (status === '正常' ? 'normal' : 'anomaly');
             document.getElementById('resultRisk').textContent = risk;
@@ -371,6 +462,7 @@
             document.getElementById('confidence').textContent = confidence;
             document.getElementById('zScore').textContent = zScore;
             document.getElementById('weightAnalysis').textContent = weightAnalysis;
+            document.getElementById('resultCard').className = 'result-card ' + (status === '正常' ? 'success' : (risk === '高风险' ? 'danger' : 'warning'));
             
             const previewImg = document.getElementById('previewImage');
             if (imagePreview) {
@@ -379,7 +471,6 @@
             }
         }
 
-        // 输入验证
         document.getElementById('weight').addEventListener('input', checkForm);
         document.getElementById('category').addEventListener('change', checkForm);
         
@@ -388,6 +479,6 @@
             const category = document.getElementById('category').value;
             detectBtn.disabled = !(weight || category || selectedFile);
         }
-    </script>
-</body>
-</html>
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
